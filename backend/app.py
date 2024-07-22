@@ -1,8 +1,14 @@
-from flask import Flask, request, jsonify
-import dns.resolver
 import socket
+import threading
+from flask import Flask, request, jsonify
+from flask_cors import CORS
+import dns.message
+import dns.rrset
+import dns.resolver
 
 app = Flask(__name__)
+CORS(app)
+
 blocklist = set()
 
 def handle_dns_request(data, addr, sock):
@@ -13,8 +19,13 @@ def handle_dns_request(data, addr, sock):
         response = dns.message.make_response(query)
         response.answer.append(dns.rrset.from_text(domain, 3600, 'IN', 'A', '0.0.0.0'))
     else:
-        resolver = dns.resolver.Resolver()
-        response = resolver.resolve(domain)
+        response = dns.message.make_response(query)
+        try:
+            answers = dns.resolver.resolve(domain)
+            for rdata in answers:
+                response.answer.append(dns.rrset.from_text(domain, 3600, 'IN', 'A', rdata.address))
+        except dns.resolver.NXDOMAIN:
+            response.set_rcode(dns.rcode.NXDOMAIN)
 
     sock.sendto(response.to_wire(), addr)
 
@@ -44,13 +55,14 @@ def get_stats():
 
 def start_dns_server():
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    sock.bind(("0.0.0.0", 5001))  # Use a non-privileged port above 1024
+    sock.bind(("0.0.0.0", 5005))  # Use another non-privileged port like 5353
     while True:
         data, addr = sock.recvfrom(512)
         handle_dns_request(data, addr, sock)
 
 if __name__ == '__main__':
-    from threading import Thread
-    dns_thread = Thread(target=start_dns_server)
-    dns_thread.start()
-    app.run(host='0.0.0.0', port=5000, debug=True) # debug mode enabled
+    if not threading.current_thread().name == "MainThread":
+        dns_thread = threading.Thread(target=start_dns_server)
+        dns_thread.daemon = True
+        dns_thread.start()
+    app.run(host='0.0.0.0', port=5000, debug=True)

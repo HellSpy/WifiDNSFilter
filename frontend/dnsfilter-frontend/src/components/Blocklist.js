@@ -11,7 +11,7 @@ const Blocklist = () => {
 
   const fetchBlocklist = async () => {
     try {
-      const response = await axios.get('/api/blocklist'); // Correct endpoint
+      const response = await axios.get('http://localhost:5000/api/blocklist');
       setBlocklist(response.data);
     } catch (error) {
       console.error('Error fetching blocklist', error);
@@ -20,7 +20,7 @@ const Blocklist = () => {
 
   const addDomain = async () => {
     try {
-      await axios.post('/api/add_blocklist', { domain: newDomain }); // Correct endpoint
+      await axios.post('http://localhost:5000/api/add_blocklist', { domain: newDomain });
       fetchBlocklist();
       setNewDomain('');
     } catch (error) {
@@ -30,7 +30,7 @@ const Blocklist = () => {
 
   const removeDomain = async (domain) => {
     try {
-      await axios.post('/api/remove_blocklist', { domain }); // Correct endpoint
+      await axios.post('http://localhost:5000/api/remove_blocklist', { domain });
       fetchBlocklist();
     } catch (error) {
       console.error('Error removing domain', error);
