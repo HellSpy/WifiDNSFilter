@@ -1,5 +1,3 @@
-Wifi DNS filter project
-
 # Wifi DNSFilter
 
 Wifi DNSFilter is a web application designed to provide DNS filtering capabilities to block unwanted domains, such as those serving advertisements or malicious content. The application includes a backend server built with Flask and a frontend client built with React.
