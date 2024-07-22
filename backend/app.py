@@ -18,6 +18,10 @@ def handle_dns_request(data, addr, sock):
 
     sock.sendto(response.to_wire(), addr)
 
+@app.route('/')
+def index():
+    return "Welcome to the DNS Filter API"
+
 @app.route('/api/add_blocklist', methods=['POST'])
 def add_blocklist():
     domain = request.json.get('domain')
@@ -30,13 +34,17 @@ def remove_blocklist():
     blocklist.discard(domain)
     return jsonify({"status": "success", "message": f"Removed {domain} from blocklist"})
 
+@app.route('/api/blocklist', methods=['GET'])
+def get_blocklist():
+    return jsonify(list(blocklist))
+
 @app.route('/api/get_stats', methods=['GET'])
 def get_stats():
     return jsonify({"status": "success", "data": "stats"})
 
 def start_dns_server():
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    sock.bind(("0.0.0.0", 53))
+    sock.bind(("0.0.0.0", 5001))  # Use a non-privileged port above 1024
     while True:
         data, addr = sock.recvfrom(512)
         handle_dns_request(data, addr, sock)
