@@ -6,7 +6,13 @@ import dns.message
 import dns.rrset
 import dns.resolver
 from multiprocessing import Manager, Queue, Lock
-from queue import Empty  # Import the Empty exception
+from queue import Empty
+import logging
+import time
+
+# module imports
+from Bulk import bulk_bp
+from Analytic import analytics_bp
 
 app = Flask(__name__)
 CORS(app)
@@ -14,8 +20,23 @@ CORS(app)
 # Initialize the blocklist as a global variable using Manager for shared state
 manager = Manager()
 blocklist = manager.dict()
+
+# Initialize the lock for synchronizing access to the blocklist
+blocklist_lock = Lock()
+
+# Pass the blocklist and blocklist_lock to the Bulk Blueprint
+bulk_bp.blocklist = blocklist
+bulk_bp.blocklist_lock = blocklist_lock
+
 update_queue = Queue()  # Create a queue for updates
-blocklist_lock = Lock()  # Create a lock for synchronizing access to the blocklist
+
+# Register the Bulk Blueprint and Analytics Blueprint
+app.register_blueprint(bulk_bp)
+app.register_blueprint(analytics_bp)
+
+# Set up logging
+logging.basicConfig(level=logging.INFO, filename='dns_requests.log',
+                    format='%(asctime)s %(levelname)s %(message)s')
 
 def clean_domain(domain):
     """ Ensure the domain is properly formatted """
@@ -28,6 +49,10 @@ def clean_domain(domain):
         domain += '.'
     return domain
 
+def log_dns_request(domain, action):
+    """ Log the DNS request details """
+    logging.info(f"Domain: {domain}, Action: {action}")
+
 def handle_dns_request(data, addr, sock):
     query = dns.message.from_wire(data)
     domain = str(query.question[0].name).lower().strip()
@@ -37,6 +62,7 @@ def handle_dns_request(data, addr, sock):
 
     print(f"[DNS Thread] Received DNS query for domain: {domain}")
 
+    action = "resolve"
     # Process the updates from the queue before handling the DNS request
     with blocklist_lock:
         while not update_queue.empty():
@@ -57,6 +83,7 @@ def handle_dns_request(data, addr, sock):
             print(f"[DNS Thread] Domain {domain} is in blocklist. Blocking it.")
             response = dns.message.make_response(query)
             response.answer.append(dns.rrset.from_text(domain, 3600, 'IN', 'A', '0.0.0.0'))
+            action = "block"
         else:
             print(f"[DNS Thread] Domain {domain} is not in blocklist. Resolving it.")
             response = dns.message.make_response(query)
@@ -67,6 +94,7 @@ def handle_dns_request(data, addr, sock):
             except dns.resolver.NXDOMAIN:
                 response.set_rcode(dns.rcode.NXDOMAIN)
 
+    log_dns_request(domain, action)
     sock.sendto(response.to_wire(), addr)
 
 def dns_server():

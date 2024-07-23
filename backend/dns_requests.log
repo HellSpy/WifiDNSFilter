@@ -1,12 +1,57 @@
-2024-07-23 18:27:04,531 INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+2024-07-23 18:45:57,105 INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on all addresses (0.0.0.0)
  * Running on http://127.0.0.1:5000
  * Running on http://192.168.0.188:5000
-2024-07-23 18:27:04,531 INFO [33mPress CTRL+C to quit[0m
-2024-07-23 18:27:04,531 INFO  * Restarting with stat
-2024-07-23 18:27:04,662 WARNING  * Debugger is active!
-2024-07-23 18:27:04,665 INFO  * Debugger PIN: 141-265-358
-2024-07-23 18:27:13,540 INFO 127.0.0.1 - - [23/Jul/2024 18:27:13] "GET /api/get_stats HTTP/1.1" 200 -
-2024-07-23 18:27:13,541 INFO 127.0.0.1 - - [23/Jul/2024 18:27:13] "GET /api/blocklist HTTP/1.1" 200 -
-2024-07-23 18:27:13,542 INFO 127.0.0.1 - - [23/Jul/2024 18:27:13] "GET /api/get_stats HTTP/1.1" 200 -
-2024-07-23 18:27:13,543 INFO 127.0.0.1 - - [23/Jul/2024 18:27:13] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 18:45:57,105 INFO [33mPress CTRL+C to quit[0m
+2024-07-23 18:45:57,105 INFO  * Restarting with stat
+2024-07-23 18:45:57,247 WARNING  * Debugger is active!
+2024-07-23 18:45:57,248 INFO  * Debugger PIN: 141-265-358
+2024-07-23 18:46:00,143 INFO 127.0.0.1 - - [23/Jul/2024 18:46:00] "GET /api/get_stats HTTP/1.1" 200 -
+2024-07-23 18:46:00,144 INFO 127.0.0.1 - - [23/Jul/2024 18:46:00] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 18:46:00,147 INFO 127.0.0.1 - - [23/Jul/2024 18:46:00] "GET /api/get_stats HTTP/1.1" 200 -
+2024-07-23 18:46:00,147 INFO 127.0.0.1 - - [23/Jul/2024 18:46:00] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 18:46:15,275 INFO 127.0.0.1 - - [23/Jul/2024 18:46:15] "OPTIONS /api/add_blocklist HTTP/1.1" 200 -
+2024-07-23 18:46:15,278 INFO 127.0.0.1 - - [23/Jul/2024 18:46:15] "POST /api/add_blocklist HTTP/1.1" 200 -
+2024-07-23 18:46:15,285 INFO 127.0.0.1 - - [23/Jul/2024 18:46:15] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 18:46:16,654 INFO 127.0.0.1 - - [23/Jul/2024 18:46:16] "GET /api/get_stats HTTP/1.1" 200 -
+2024-07-23 18:46:16,655 INFO 127.0.0.1 - - [23/Jul/2024 18:46:16] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 18:46:16,658 INFO 127.0.0.1 - - [23/Jul/2024 18:46:16] "GET /api/get_stats HTTP/1.1" 200 -
+2024-07-23 18:46:16,659 INFO 127.0.0.1 - - [23/Jul/2024 18:46:16] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 18:46:32,059 INFO Domain: example.com., Action: block
+2024-07-23 18:46:56,959 INFO 127.0.0.1 - - [23/Jul/2024 18:46:56] "GET /api/get_stats HTTP/1.1" 200 -
+2024-07-23 18:46:56,960 INFO 127.0.0.1 - - [23/Jul/2024 18:46:56] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 18:46:56,964 INFO 127.0.0.1 - - [23/Jul/2024 18:46:56] "GET /api/get_stats HTTP/1.1" 200 -
+2024-07-23 18:46:56,965 INFO 127.0.0.1 - - [23/Jul/2024 18:46:56] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 18:47:41,531 INFO  * Detected change in '/home/thehellspy/Desktop/Web Dev/DNSFilter/backend/Analytic.py', reloading
+2024-07-23 18:47:41,571 INFO  * Restarting with stat
+2024-07-23 18:47:41,716 WARNING  * Debugger is active!
+2024-07-23 18:47:41,718 INFO  * Debugger PIN: 141-265-358
+2024-07-23 18:47:44,918 INFO 127.0.0.1 - - [23/Jul/2024 18:47:44] "GET /api/get_stats HTTP/1.1" 200 -
+2024-07-23 18:47:44,919 INFO 127.0.0.1 - - [23/Jul/2024 18:47:44] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 18:47:44,921 INFO 127.0.0.1 - - [23/Jul/2024 18:47:44] "GET /api/get_stats HTTP/1.1" 200 -
+2024-07-23 18:47:44,925 INFO 127.0.0.1 - - [23/Jul/2024 18:47:44] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 18:48:02,414 INFO 127.0.0.1 - - [23/Jul/2024 18:48:02] "GET /api/get_stats HTTP/1.1" 200 -
+2024-07-23 18:48:02,415 INFO 127.0.0.1 - - [23/Jul/2024 18:48:02] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 18:48:02,417 INFO 127.0.0.1 - - [23/Jul/2024 18:48:02] "GET /api/get_stats HTTP/1.1" 200 -
+2024-07-23 18:48:02,418 INFO 127.0.0.1 - - [23/Jul/2024 18:48:02] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 18:48:18,571 INFO 127.0.0.1 - - [23/Jul/2024 18:48:18] "GET /api/get_stats HTTP/1.1" 200 -
+2024-07-23 18:48:18,571 INFO 127.0.0.1 - - [23/Jul/2024 18:48:18] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 18:48:18,575 INFO 127.0.0.1 - - [23/Jul/2024 18:48:18] "GET /api/get_stats HTTP/1.1" 200 -
+2024-07-23 18:48:18,576 INFO 127.0.0.1 - - [23/Jul/2024 18:48:18] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 18:48:21,808 INFO 127.0.0.1 - - [23/Jul/2024 18:48:21] "OPTIONS /api/add_blocklist HTTP/1.1" 200 -
+2024-07-23 18:48:21,811 INFO 127.0.0.1 - - [23/Jul/2024 18:48:21] "POST /api/add_blocklist HTTP/1.1" 200 -
+2024-07-23 18:48:21,815 INFO 127.0.0.1 - - [23/Jul/2024 18:48:21] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 18:48:22,953 INFO 127.0.0.1 - - [23/Jul/2024 18:48:22] "GET /api/get_stats HTTP/1.1" 200 -
+2024-07-23 18:48:22,953 INFO 127.0.0.1 - - [23/Jul/2024 18:48:22] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 18:48:22,957 INFO 127.0.0.1 - - [23/Jul/2024 18:48:22] "GET /api/get_stats HTTP/1.1" 200 -
+2024-07-23 18:48:22,957 INFO 127.0.0.1 - - [23/Jul/2024 18:48:22] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 18:48:27,366 INFO Domain: example.com., Action: block
+2024-07-23 18:48:29,334 INFO 127.0.0.1 - - [23/Jul/2024 18:48:29] "GET /api/get_stats HTTP/1.1" 200 -
+2024-07-23 18:48:29,335 INFO 127.0.0.1 - - [23/Jul/2024 18:48:29] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 18:48:29,339 INFO 127.0.0.1 - - [23/Jul/2024 18:48:29] "GET /api/get_stats HTTP/1.1" 200 -
+2024-07-23 18:48:29,339 INFO 127.0.0.1 - - [23/Jul/2024 18:48:29] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 18:48:39,397 INFO Domain: testerwork.com., Action: resolve
+2024-07-23 18:48:41,812 INFO 127.0.0.1 - - [23/Jul/2024 18:48:41] "GET /api/get_stats HTTP/1.1" 200 -
+2024-07-23 18:48:41,813 INFO 127.0.0.1 - - [23/Jul/2024 18:48:41] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 18:48:41,815 INFO 127.0.0.1 - - [23/Jul/2024 18:48:41] "GET /api/get_stats HTTP/1.1" 200 -
+2024-07-23 18:48:41,816 INFO 127.0.0.1 - - [23/Jul/2024 18:48:41] "GET /api/blocklist HTTP/1.1" 200 -

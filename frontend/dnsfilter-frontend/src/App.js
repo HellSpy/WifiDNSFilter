@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Blocklist from './components/Blocklist';
+import Dashboard from './components/Dashboard';
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
         <h1>DNS Filter</h1>
       </header>
       <main>
-        <Blocklist />
+        <Dashboard />
       </main>
     </div>
   );
