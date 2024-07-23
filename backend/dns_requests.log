@@ -1,0 +1,12 @@
+2024-07-23 18:27:04,531 INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.188:5000
+2024-07-23 18:27:04,531 INFO [33mPress CTRL+C to quit[0m
+2024-07-23 18:27:04,531 INFO  * Restarting with stat
+2024-07-23 18:27:04,662 WARNING  * Debugger is active!
+2024-07-23 18:27:04,665 INFO  * Debugger PIN: 141-265-358
+2024-07-23 18:27:13,540 INFO 127.0.0.1 - - [23/Jul/2024 18:27:13] "GET /api/get_stats HTTP/1.1" 200 -
+2024-07-23 18:27:13,541 INFO 127.0.0.1 - - [23/Jul/2024 18:27:13] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 18:27:13,542 INFO 127.0.0.1 - - [23/Jul/2024 18:27:13] "GET /api/get_stats HTTP/1.1" 200 -
+2024-07-23 18:27:13,543 INFO 127.0.0.1 - - [23/Jul/2024 18:27:13] "GET /api/blocklist HTTP/1.1" 200 -
