@@ -1,3 +1,12 @@
+/* App.css */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
 .App {
   text-align: center;
 }
@@ -15,17 +24,76 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 20px;
   color: white;
 }
 
 .App-link {
   color: #61dafb;
+}
+
+main {
+  padding: 20px;
+}
+
+h2 {
+  color: #333;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background: #fff;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ff1a1a;
+}
+
+input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: calc(100% - 24px);
+  margin-bottom: 10px;
+}
+
+input[type="text"]:focus {
+  border-color: #999;
+  outline: none;
+}
+
+.add-domain-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.add-domain-button:hover {
+  background-color: #45a049;
 }
 
 @keyframes App-logo-spin {

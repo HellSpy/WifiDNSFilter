@@ -53,7 +53,7 @@ const Blocklist = () => {
         onChange={(e) => setNewDomain(e.target.value)}
         placeholder="Add domain to blocklist"
       />
-      <button onClick={addDomain}>Add</button>
+      <button className="add-domain-button" onClick={addDomain}>Add</button>
     </div>
   );
 };

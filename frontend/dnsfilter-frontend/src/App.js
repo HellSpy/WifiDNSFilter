@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css';
 import Blocklist from './components/Blocklist';
 
 function App() {
