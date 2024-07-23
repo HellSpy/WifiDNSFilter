@@ -5,29 +5,84 @@ from flask_cors import CORS
 import dns.message
 import dns.rrset
 import dns.resolver
+from multiprocessing import Manager, Queue, Lock
+from queue import Empty  # Import the Empty exception
 
 app = Flask(__name__)
 CORS(app)
 
-blocklist = set()
+# Initialize the blocklist as a global variable using Manager for shared state
+manager = Manager()
+blocklist = manager.dict()
+update_queue = Queue()  # Create a queue for updates
+blocklist_lock = Lock()  # Create a lock for synchronizing access to the blocklist
+
+def clean_domain(domain):
+    """ Ensure the domain is properly formatted """
+    domain = domain.lower().strip()
+    if domain.startswith('http://'):
+        domain = domain[len('http://'):]
+    elif domain.startswith('https://'):
+        domain = domain[len('https://'):]
+    if not domain.endswith('.'):
+        domain += '.'
+    return domain
 
 def handle_dns_request(data, addr, sock):
     query = dns.message.from_wire(data)
-    domain = str(query.question[0].name)
+    domain = str(query.question[0].name).lower().strip()
 
-    if domain in blocklist:
-        response = dns.message.make_response(query)
-        response.answer.append(dns.rrset.from_text(domain, 3600, 'IN', 'A', '0.0.0.0'))
-    else:
-        response = dns.message.make_response(query)
-        try:
-            answers = dns.resolver.resolve(domain)
-            for rdata in answers:
-                response.answer.append(dns.rrset.from_text(domain, 3600, 'IN', 'A', rdata.address))
-        except dns.resolver.NXDOMAIN:
-            response.set_rcode(dns.rcode.NXDOMAIN)
+    if not domain.endswith('.'):
+        domain += '.'
+
+    print(f"[DNS Thread] Received DNS query for domain: {domain}")
+
+    # Process the updates from the queue before handling the DNS request
+    with blocklist_lock:
+        while not update_queue.empty():
+            try:
+                update = update_queue.get_nowait()
+                if update["action"] == "add":
+                    blocklist[update["domain"]] = True
+                    print(f"[DNS Thread] Added {update['domain']} to blocklist in DNS thread")
+                elif update["action"] == "remove":
+                    if update["domain"] in blocklist:
+                        del blocklist[update["domain"]]
+                        print(f"[DNS Thread] Removed {update['domain']} from blocklist in DNS thread")
+            except Empty:
+                pass
+
+        print(f"[DNS Thread] Current blocklist in DNS thread: {list(blocklist.keys())}")
+        if domain in blocklist:
+            print(f"[DNS Thread] Domain {domain} is in blocklist. Blocking it.")
+            response = dns.message.make_response(query)
+            response.answer.append(dns.rrset.from_text(domain, 3600, 'IN', 'A', '0.0.0.0'))
+        else:
+            print(f"[DNS Thread] Domain {domain} is not in blocklist. Resolving it.")
+            response = dns.message.make_response(query)
+            try:
+                answers = dns.resolver.resolve(domain)
+                for rdata in answers:
+                    response.answer.append(dns.rrset.from_text(domain, 3600, 'IN', 'A', rdata.address))
+            except dns.resolver.NXDOMAIN:
+                response.set_rcode(dns.rcode.NXDOMAIN)
 
     sock.sendto(response.to_wire(), addr)
+
+def dns_server():
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)  # Allow reuse of addresses
+    try:
+        sock.bind(("127.0.0.1", 5005))  # Bind to localhost and port 5005
+        print("[DNS Thread] DNS server started on 127.0.0.1:5005")
+    except Exception as e:
+        print(f"[DNS Thread] Failed to bind socket: {e}")
+        return
+
+    while True:
+        # Handle DNS requests
+        data, addr = sock.recvfrom(512)
+        handle_dns_request(data, addr, sock)
 
 @app.route('/')
 def index():
@@ -36,33 +91,42 @@ def index():
 @app.route('/api/add_blocklist', methods=['POST'])
 def add_blocklist():
     domain = request.json.get('domain')
-    blocklist.add(domain)
-    return jsonify({"status": "success", "message": f"Added {domain} to blocklist"})
+    cleaned_domain = clean_domain(domain)
+    with blocklist_lock:
+        update_queue.put({"action": "add", "domain": cleaned_domain})
+        print(f"[Flask] Added {cleaned_domain} to blocklist queue")
+        # Directly update the blocklist for immediate consistency
+        blocklist[cleaned_domain] = True
+        print(f"[Flask] Blocklist immediately after adding: {list(blocklist.keys())}")
+    return jsonify({"status": "success", "message": f"Added {cleaned_domain} to blocklist"})
 
 @app.route('/api/remove_blocklist', methods=['POST'])
 def remove_blocklist():
     domain = request.json.get('domain')
-    blocklist.discard(domain)
-    return jsonify({"status": "success", "message": f"Removed {domain} from blocklist"})
+    cleaned_domain = clean_domain(domain)
+    with blocklist_lock:
+        update_queue.put({"action": "remove", "domain": cleaned_domain})
+        print(f"[Flask] Removed {cleaned_domain} from blocklist queue")
+        # Directly update the blocklist for immediate consistency
+        if cleaned_domain in blocklist:
+            del blocklist[cleaned_domain]
+        print(f"[Flask] Blocklist immediately after removing: {list(blocklist.keys())}")
+    return jsonify({"status": "success", "message": f"Removed {cleaned_domain} from blocklist"})
 
 @app.route('/api/blocklist', methods=['GET'])
 def get_blocklist():
-    return jsonify(list(blocklist))
+    with blocklist_lock:
+        print(f"[Flask] Current blocklist when fetching: {list(blocklist.keys())}")
+        return jsonify(list(blocklist.keys()))
 
 @app.route('/api/get_stats', methods=['GET'])
 def get_stats():
     return jsonify({"status": "success", "data": "stats"})
 
-def start_dns_server():
-    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    sock.bind(("0.0.0.0", 5005))  # Use another non-privileged port like 5353
-    while True:
-        data, addr = sock.recvfrom(512)
-        handle_dns_request(data, addr, sock)
-
 if __name__ == '__main__':
-    if not threading.current_thread().name == "MainThread":
-        dns_thread = threading.Thread(target=start_dns_server)
-        dns_thread.daemon = True
-        dns_thread.start()
+    # Ensure the socket is not already in use
+    dns_thread = threading.Thread(target=dns_server)
+    dns_thread.daemon = True
+    dns_thread.start()
+
     app.run(host='0.0.0.0', port=5000, debug=True)
