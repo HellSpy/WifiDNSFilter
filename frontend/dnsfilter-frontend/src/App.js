@@ -53,7 +53,7 @@ function App() {
              activePage === 'Analytics' ? 'Analytics Panel' : 
              activePage === 'Settings' ? 'Settings' :
              activePage === 'Logs' ? 'Logs' :
-             activePage === 'Help' ? 'Help' :
+             activePage === 'Help' ? 'Help & FAQ' :
              'Manage Blocklist'}
           </Typography>
           {renderContent()}

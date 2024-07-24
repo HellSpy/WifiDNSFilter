@@ -15,6 +15,7 @@ from Bulk import bulk_bp
 from Analytic import analytics_bp
 from logs import logs_bp  # Import the logs blueprint
 from settings import settings_bp  # Import the settings blueprint
+from dns_server_config import dns_thread, settings, dns_server, stop_event  # Import DNS server and settings
 
 app = Flask(__name__)
 CORS(app)
@@ -55,7 +56,8 @@ def clean_domain(domain):
 
 def log_dns_request(domain, action):
     """ Log the DNS request details """
-    logging.info(f"Domain: {domain}, Action: {action}")
+    if settings["enable_logging"]:
+        logging.info(f"Domain: {domain}, Action: {action}")
 
 def handle_dns_request(data, addr, sock):
     query = dns.message.from_wire(data)
@@ -101,21 +103,6 @@ def handle_dns_request(data, addr, sock):
     log_dns_request(domain, action)
     sock.sendto(response.to_wire(), addr)
 
-def dns_server():
-    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)  # Allow reuse of addresses
-    try:
-        sock.bind(("127.0.0.1", 5005))  # Bind to localhost and port 5005
-        print("[DNS Thread] DNS server started on 127.0.0.1:5005")
-    except Exception as e:
-        print(f"[DNS Thread] Failed to bind socket: {e}")
-        return
-
-    while True:
-        # Handle DNS requests
-        data, addr = sock.recvfrom(512)
-        handle_dns_request(data, addr, sock)
-
 @app.route('/')
 def index():
     return "Welcome to the DNS Filter API"
@@ -156,7 +143,7 @@ def get_stats():
     return jsonify({"status": "success", "data": "stats"})
 
 if __name__ == '__main__':
-    # Ensure the socket is not already in use
+    global dns_thread, stop_event
     dns_thread = threading.Thread(target=dns_server)
     dns_thread.daemon = True
     dns_thread.start()

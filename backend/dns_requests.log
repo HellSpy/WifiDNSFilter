@@ -399,3 +399,153 @@
 2024-07-23 21:37:41,639 INFO  * Restarting with stat
 2024-07-23 21:37:41,768 WARNING  * Debugger is active!
 2024-07-23 21:37:41,770 INFO  * Debugger PIN: 141-265-358
+2024-07-23 21:40:11,267 INFO  * Detected change in '/home/thehellspy/Desktop/Web Dev/DNSFilter/backend/app.py', reloading
+2024-07-23 21:40:11,307 INFO  * Restarting with stat
+2024-07-23 21:40:11,436 WARNING  * Debugger is active!
+2024-07-23 21:40:11,438 INFO  * Debugger PIN: 141-265-358
+2024-07-23 21:40:20,466 INFO  * Detected change in '/home/thehellspy/Desktop/Web Dev/DNSFilter/backend/settings.py', reloading
+2024-07-23 21:40:20,511 INFO  * Restarting with stat
+2024-07-23 21:40:20,635 WARNING  * Debugger is active!
+2024-07-23 21:40:20,637 INFO  * Debugger PIN: 141-265-358
+2024-07-23 21:40:24,832 INFO 127.0.0.1 - - [23/Jul/2024 21:40:24] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 21:40:24,836 INFO 127.0.0.1 - - [23/Jul/2024 21:40:24] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 21:40:26,919 INFO 127.0.0.1 - - [23/Jul/2024 21:40:26] "GET /api/get_stats HTTP/1.1" 200 -
+2024-07-23 21:40:26,921 INFO 127.0.0.1 - - [23/Jul/2024 21:40:26] "GET /api/get_stats HTTP/1.1" 200 -
+2024-07-23 21:40:36,234 INFO 127.0.0.1 - - [23/Jul/2024 21:40:36] "GET /api/logs HTTP/1.1" 200 -
+2024-07-23 21:40:36,241 INFO 127.0.0.1 - - [23/Jul/2024 21:40:36] "GET /api/logs HTTP/1.1" 200 -
+2024-07-23 21:40:41,454 INFO 127.0.0.1 - - [23/Jul/2024 21:40:41] "GET /api/settings HTTP/1.1" 200 -
+2024-07-23 21:40:41,456 INFO 127.0.0.1 - - [23/Jul/2024 21:40:41] "GET /api/settings HTTP/1.1" 200 -
+2024-07-23 21:40:52,210 INFO 127.0.0.1 - - [23/Jul/2024 21:40:52] "OPTIONS /api/settings HTTP/1.1" 200 -
+2024-07-23 21:40:52,223 INFO 127.0.0.1 - - [23/Jul/2024 21:40:52] "[35m[1mPOST /api/settings HTTP/1.1[0m" 500 -
+2024-07-23 21:41:56,961 INFO  * Detected change in '/home/thehellspy/Desktop/Web Dev/DNSFilter/backend/settings.py', reloading
+2024-07-23 21:41:56,997 INFO  * Restarting with stat
+2024-07-23 21:41:57,126 WARNING  * Debugger is active!
+2024-07-23 21:41:57,128 INFO  * Debugger PIN: 141-265-358
+2024-07-23 21:42:26,224 INFO  * Detected change in '/home/thehellspy/Desktop/Web Dev/DNSFilter/backend/settings.py', reloading
+2024-07-23 21:42:26,262 INFO  * Restarting with stat
+2024-07-23 21:42:26,391 WARNING  * Debugger is active!
+2024-07-23 21:42:26,393 INFO  * Debugger PIN: 141-265-358
+2024-07-23 21:42:34,421 INFO  * Detected change in '/home/thehellspy/Desktop/Web Dev/DNSFilter/backend/app.py', reloading
+2024-07-23 21:42:34,456 INFO  * Restarting with stat
+2024-07-23 21:42:34,588 WARNING  * Debugger is active!
+2024-07-23 21:42:34,590 INFO  * Debugger PIN: 141-265-358
+2024-07-23 21:42:44,624 INFO  * Detected change in '/home/thehellspy/Desktop/Web Dev/DNSFilter/backend/app.py', reloading
+2024-07-23 21:42:44,660 INFO  * Restarting with stat
+2024-07-23 21:47:21,237 INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.188:5000
+2024-07-23 21:47:21,238 INFO [33mPress CTRL+C to quit[0m
+2024-07-23 21:47:21,238 INFO  * Restarting with stat
+2024-07-23 21:47:21,371 WARNING  * Debugger is active!
+2024-07-23 21:47:21,375 INFO  * Debugger PIN: 141-265-358
+2024-07-23 21:47:25,061 INFO 127.0.0.1 - - [23/Jul/2024 21:47:25] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 21:47:25,064 INFO 127.0.0.1 - - [23/Jul/2024 21:47:25] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 21:47:26,359 INFO 127.0.0.1 - - [23/Jul/2024 21:47:26] "GET /api/settings HTTP/1.1" 200 -
+2024-07-23 21:47:26,361 INFO 127.0.0.1 - - [23/Jul/2024 21:47:26] "GET /api/settings HTTP/1.1" 200 -
+2024-07-23 21:47:29,363 INFO 127.0.0.1 - - [23/Jul/2024 21:47:29] "OPTIONS /api/settings HTTP/1.1" 200 -
+2024-07-23 21:47:29,365 INFO 127.0.0.1 - - [23/Jul/2024 21:47:29] "POST /api/settings HTTP/1.1" 200 -
+2024-07-23 21:48:35,492 INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.188:5000
+2024-07-23 21:48:35,492 INFO [33mPress CTRL+C to quit[0m
+2024-07-23 21:48:35,493 INFO  * Restarting with stat
+2024-07-23 21:48:35,636 WARNING  * Debugger is active!
+2024-07-23 21:48:35,641 INFO  * Debugger PIN: 141-265-358
+2024-07-23 21:48:57,755 INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.188:5000
+2024-07-23 21:48:57,755 INFO [33mPress CTRL+C to quit[0m
+2024-07-23 21:48:57,756 INFO  * Restarting with stat
+2024-07-23 21:48:57,887 WARNING  * Debugger is active!
+2024-07-23 21:48:57,892 INFO  * Debugger PIN: 141-265-358
+2024-07-23 21:49:00,627 INFO 127.0.0.1 - - [23/Jul/2024 21:49:00] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 21:49:00,630 INFO 127.0.0.1 - - [23/Jul/2024 21:49:00] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 21:49:01,738 INFO 127.0.0.1 - - [23/Jul/2024 21:49:01] "GET /api/logs HTTP/1.1" 200 -
+2024-07-23 21:49:01,745 INFO 127.0.0.1 - - [23/Jul/2024 21:49:01] "GET /api/logs HTTP/1.1" 200 -
+2024-07-23 21:49:03,459 INFO 127.0.0.1 - - [23/Jul/2024 21:49:03] "GET /api/settings HTTP/1.1" 200 -
+2024-07-23 21:49:03,461 INFO 127.0.0.1 - - [23/Jul/2024 21:49:03] "GET /api/settings HTTP/1.1" 200 -
+2024-07-23 21:49:05,789 INFO 127.0.0.1 - - [23/Jul/2024 21:49:05] "OPTIONS /api/settings HTTP/1.1" 200 -
+2024-07-23 21:49:05,792 INFO 127.0.0.1 - - [23/Jul/2024 21:49:05] "POST /api/settings HTTP/1.1" 200 -
+2024-07-23 21:49:11,369 INFO 127.0.0.1 - - [23/Jul/2024 21:49:11] "OPTIONS /api/settings HTTP/1.1" 200 -
+2024-07-23 21:49:12,374 INFO 127.0.0.1 - - [23/Jul/2024 21:49:12] "POST /api/settings HTTP/1.1" 200 -
+2024-07-23 21:49:18,948 INFO Domain: testerwork.com., Action: resolve
+2024-07-23 21:49:22,600 INFO Domain: testerwork.com., Action: resolve
+2024-07-23 21:49:35,298 INFO Domain: testerwork.com., Action: resolve
+2024-07-23 21:49:43,098 INFO Domain: example.com., Action: resolve
+2024-07-23 21:49:49,189 INFO Domain: example2.com., Action: resolve
+2024-07-23 21:49:53,774 INFO Domain: example2.com., Action: resolve
+2024-07-23 21:49:56,307 INFO 127.0.0.1 - - [23/Jul/2024 21:49:56] "GET /api/logs HTTP/1.1" 200 -
+2024-07-23 21:49:56,314 INFO 127.0.0.1 - - [23/Jul/2024 21:49:56] "GET /api/logs HTTP/1.1" 200 -
+2024-07-23 21:49:57,800 INFO 127.0.0.1 - - [23/Jul/2024 21:49:57] "GET /api/settings HTTP/1.1" 200 -
+2024-07-23 21:49:57,802 INFO 127.0.0.1 - - [23/Jul/2024 21:49:57] "GET /api/settings HTTP/1.1" 200 -
+2024-07-23 21:51:13,356 INFO  * Detected change in '/home/thehellspy/Desktop/Web Dev/DNSFilter/backend/settings.py', reloading
+2024-07-23 21:51:13,393 INFO  * Restarting with stat
+2024-07-23 21:51:50,132 INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.188:5000
+2024-07-23 21:51:50,132 INFO [33mPress CTRL+C to quit[0m
+2024-07-23 21:51:50,133 INFO  * Restarting with stat
+2024-07-23 21:51:50,269 WARNING  * Debugger is active!
+2024-07-23 21:51:50,272 INFO  * Debugger PIN: 141-265-358
+2024-07-23 21:51:55,936 INFO 127.0.0.1 - - [23/Jul/2024 21:51:55] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 21:51:55,938 INFO 127.0.0.1 - - [23/Jul/2024 21:51:55] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 21:51:57,234 INFO 127.0.0.1 - - [23/Jul/2024 21:51:57] "GET /api/get_stats HTTP/1.1" 200 -
+2024-07-23 21:51:57,236 INFO 127.0.0.1 - - [23/Jul/2024 21:51:57] "GET /api/get_stats HTTP/1.1" 200 -
+2024-07-23 21:52:01,497 INFO 127.0.0.1 - - [23/Jul/2024 21:52:01] "GET /api/logs HTTP/1.1" 200 -
+2024-07-23 21:52:01,504 INFO 127.0.0.1 - - [23/Jul/2024 21:52:01] "GET /api/logs HTTP/1.1" 200 -
+2024-07-23 21:52:02,863 INFO 127.0.0.1 - - [23/Jul/2024 21:52:02] "GET /api/settings HTTP/1.1" 200 -
+2024-07-23 21:52:02,865 INFO 127.0.0.1 - - [23/Jul/2024 21:52:02] "GET /api/settings HTTP/1.1" 200 -
+2024-07-23 21:52:08,323 INFO 127.0.0.1 - - [23/Jul/2024 21:52:08] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 21:52:08,325 INFO 127.0.0.1 - - [23/Jul/2024 21:52:08] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 21:52:08,910 INFO 127.0.0.1 - - [23/Jul/2024 21:52:08] "GET /api/settings HTTP/1.1" 200 -
+2024-07-23 21:52:08,912 INFO 127.0.0.1 - - [23/Jul/2024 21:52:08] "GET /api/settings HTTP/1.1" 200 -
+2024-07-23 21:52:12,158 INFO 127.0.0.1 - - [23/Jul/2024 21:52:12] "OPTIONS /api/settings HTTP/1.1" 200 -
+2024-07-23 21:52:12,161 INFO 127.0.0.1 - - [23/Jul/2024 21:52:12] "POST /api/settings HTTP/1.1" 200 -
+2024-07-23 21:52:17,893 INFO Domain: example2.com., Action: resolve
+2024-07-23 21:52:20,840 INFO Domain: example2.com., Action: resolve
+2024-07-23 21:52:25,697 INFO Domain: example2.com., Action: resolve
+2024-07-23 21:52:40,691 INFO 127.0.0.1 - - [23/Jul/2024 21:52:40] "OPTIONS /api/settings HTTP/1.1" 200 -
+2024-07-23 21:52:48,240 INFO 127.0.0.1 - - [23/Jul/2024 21:52:48] "OPTIONS /api/settings HTTP/1.1" 200 -
+2024-07-23 21:52:50,497 INFO 127.0.0.1 - - [23/Jul/2024 21:52:50] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 21:52:50,499 INFO 127.0.0.1 - - [23/Jul/2024 21:52:50] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 21:52:51,347 INFO 127.0.0.1 - - [23/Jul/2024 21:52:51] "GET /api/settings HTTP/1.1" 200 -
+2024-07-23 21:52:51,349 INFO 127.0.0.1 - - [23/Jul/2024 21:52:51] "GET /api/settings HTTP/1.1" 200 -
+2024-07-23 21:52:54,862 INFO 127.0.0.1 - - [23/Jul/2024 21:52:54] "OPTIONS /api/settings HTTP/1.1" 200 -
+2024-07-23 21:53:08,745 INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.188:5000
+2024-07-23 21:53:08,745 INFO [33mPress CTRL+C to quit[0m
+2024-07-23 21:53:08,746 INFO  * Restarting with stat
+2024-07-23 21:53:08,881 WARNING  * Debugger is active!
+2024-07-23 21:53:08,885 INFO  * Debugger PIN: 141-265-358
+2024-07-23 21:53:09,706 INFO 127.0.0.1 - - [23/Jul/2024 21:53:09] "GET /api/settings HTTP/1.1" 200 -
+2024-07-23 21:53:09,707 INFO 127.0.0.1 - - [23/Jul/2024 21:53:09] "GET /api/settings HTTP/1.1" 200 -
+2024-07-23 21:53:13,476 INFO 127.0.0.1 - - [23/Jul/2024 21:53:13] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 21:53:13,479 INFO 127.0.0.1 - - [23/Jul/2024 21:53:13] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 21:53:13,894 INFO 127.0.0.1 - - [23/Jul/2024 21:53:13] "GET /api/settings HTTP/1.1" 200 -
+2024-07-23 21:53:13,896 INFO 127.0.0.1 - - [23/Jul/2024 21:53:13] "GET /api/settings HTTP/1.1" 200 -
+2024-07-23 21:53:17,578 INFO 127.0.0.1 - - [23/Jul/2024 21:53:17] "OPTIONS /api/settings HTTP/1.1" 200 -
+2024-07-23 21:53:17,580 INFO 127.0.0.1 - - [23/Jul/2024 21:53:17] "POST /api/settings HTTP/1.1" 200 -
+2024-07-23 21:53:21,903 INFO 127.0.0.1 - - [23/Jul/2024 21:53:21] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 21:53:21,906 INFO 127.0.0.1 - - [23/Jul/2024 21:53:21] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 21:53:22,860 INFO 127.0.0.1 - - [23/Jul/2024 21:53:22] "GET /api/settings HTTP/1.1" 200 -
+2024-07-23 21:53:22,862 INFO 127.0.0.1 - - [23/Jul/2024 21:53:22] "GET /api/settings HTTP/1.1" 200 -
+2024-07-23 21:53:27,595 INFO 127.0.0.1 - - [23/Jul/2024 21:53:27] "OPTIONS /api/settings HTTP/1.1" 200 -
+2024-07-23 21:53:32,582 INFO 127.0.0.1 - - [23/Jul/2024 21:53:32] "POST /api/settings HTTP/1.1" 200 -
+2024-07-23 21:53:43,001 INFO 127.0.0.1 - - [23/Jul/2024 21:53:43] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 21:53:43,003 INFO 127.0.0.1 - - [23/Jul/2024 21:53:43] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 21:54:43,140 INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.188:5000
+2024-07-23 21:54:43,140 INFO [33mPress CTRL+C to quit[0m
+2024-07-23 21:54:43,140 INFO  * Restarting with stat
+2024-07-23 21:54:43,271 WARNING  * Debugger is active!
+2024-07-23 21:54:43,275 INFO  * Debugger PIN: 141-265-358
+2024-07-23 21:56:08,631 INFO 127.0.0.1 - - [23/Jul/2024 21:56:08] "GET /api/blocklist HTTP/1.1" 200 -
+2024-07-23 21:56:08,633 INFO 127.0.0.1 - - [23/Jul/2024 21:56:08] "GET /api/blocklist HTTP/1.1" 200 -
