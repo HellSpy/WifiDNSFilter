@@ -41,7 +41,9 @@ We welcome contributions to improve Wifi DNSFilter. Please fork the repository a
 
 ### How to Use
 
-To start the backend server (DNS server), navigate to the backend folder and run app.py.
+1) Install all required dependecies.
 
-And then, start the front end (the web app), by navigating to the front end folder, and then dnsfilter-frontend folder, and then type the following command in the terminal: npm start
+2) To start the backend server (DNS server), navigate to the backend folder and run app.py.
+
+3) And then, start the front end (the web app), by navigating to the front end folder, and then dnsfilter-frontend folder, and then type the following command in the terminal: npm start
 
