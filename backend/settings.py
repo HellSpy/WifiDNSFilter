@@ -1,15 +1,13 @@
 from flask import Blueprint, request, jsonify
 import threading
-from dns_server_config import dns_server, dns_thread, settings, stop_event  # Import necessary variables and functions
+from dns_server_config import settings, dns_thread, dns_server
 
 settings_bp = Blueprint('settings', __name__)
 
 def restart_dns_server():
     global dns_thread
     if dns_thread and dns_thread.is_alive():
-        stop_event.set()  # Signal the DNS server thread to stop
-        dns_thread.join()  # Wait for the thread to stop
-        stop_event.clear()  # Clear the stop event for the new thread
+        dns_thread.join(1)
     dns_thread = threading.Thread(target=dns_server)
     dns_thread.daemon = True
     dns_thread.start()

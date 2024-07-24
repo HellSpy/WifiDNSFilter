@@ -8,6 +8,17 @@ bulk_bp = Blueprint('bulk', __name__)
 bulk_bp.blocklist = None
 bulk_bp.blocklist_lock = None
 
+def clean_domain(domain):
+    """ Ensure the domain is properly formatted """
+    domain = domain.lower().strip()
+    if domain.startswith('http://'):
+        domain = domain[len('http://'):]
+    elif domain.startswith('https://'):
+        domain = domain[len('https://'):]
+    if not domain.endswith('.'):
+        domain += '.'
+    return domain
+
 @bulk_bp.route('/api/export_blocklist', methods=['GET'])
 def export_blocklist():
     blocklist = bulk_bp.blocklist
@@ -39,7 +50,8 @@ def import_blocklist():
         blocklist_data = json.load(file)
         with blocklist_lock:
             for domain in blocklist_data:
-                blocklist[domain] = True
+                cleaned_domain = clean_domain(domain)
+                blocklist[cleaned_domain] = True
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 400
     return jsonify({"status": "success", "message": "Blocklist imported successfully"})
