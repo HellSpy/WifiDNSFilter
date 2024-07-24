@@ -13,6 +13,8 @@ import time
 # module imports
 from Bulk import bulk_bp
 from Analytic import analytics_bp
+from logs import logs_bp  # Import the logs blueprint
+from settings import settings_bp  # Import the settings blueprint
 
 app = Flask(__name__)
 CORS(app)
@@ -33,6 +35,8 @@ update_queue = Queue()  # Create a queue for updates
 # Register the Bulk Blueprint and Analytics Blueprint
 app.register_blueprint(bulk_bp)
 app.register_blueprint(analytics_bp)
+app.register_blueprint(logs_bp)
+app.register_blueprint(settings_bp)  # Register the settings blueprint
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, filename='dns_requests.log',

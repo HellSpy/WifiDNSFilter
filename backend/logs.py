@@ -5,13 +5,14 @@ logs_bp = Blueprint('logs', __name__)
 @logs_bp.route('/api/logs', methods=['GET'])
 def get_logs():
     try:
-        with open('backend/dns_requests.log', 'r') as f:
+        with open('dns_requests.log', 'r') as f:  # Assuming 'dns_requests.log' is in the same directory as 'app.py'
             log_entries = f.readlines()
     except FileNotFoundError:
         return jsonify({"status": "error", "message": "Log file not found"}), 500
 
     logs = []
     for entry in log_entries:
+        print(f"Processing log entry: {entry}")  # Debug print
         parts = entry.split(',')
         if len(parts) >= 3:
             timestamp = parts[0].strip()
@@ -28,5 +29,7 @@ def get_logs():
                 "action": action,
                 "message": message
             })
+        else:
+            print(f"Skipping malformed log entry: {entry}")  # Debug print
 
     return jsonify({"status": "success", "data": logs})
