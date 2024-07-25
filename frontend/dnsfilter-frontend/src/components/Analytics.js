@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Container, Typography, Grid, Card, CardContent, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
 import {
-  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
+  ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
   BarChart, Bar, PieChart, Pie, Cell
 } from 'recharts';
 
@@ -42,18 +42,21 @@ const Analytics = () => {
           </Card>
         </Grid>
 
+        {/* Linechart */}
         <Grid item xs={12}>
           <Card>
             <CardContent>
               <Typography variant="h5">Requests Over Time</Typography>
-              <LineChart width={600} height={300} data={stats.timeline_data}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="date" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Line type="monotone" dataKey="requests" stroke="#8884d8" />
-              </LineChart>
+                <ResponsiveContainer width="100%" height={300}>
+                <LineChart data={stats.timeline_data}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="date" />
+                  <YAxis />
+                  <Tooltip />
+                  <Legend />
+                  <Line type="monotone" dataKey="requests" stroke="#8884d8" />
+                </LineChart>
+              </ResponsiveContainer>
             </CardContent>
           </Card>
         </Grid>
