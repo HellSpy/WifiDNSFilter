@@ -12,7 +12,7 @@ const Logs = () => {
   const fetchLogs = async () => {
     try {
       const response = await axios.get('http://localhost:5000/api/logs');
-      setLogs(response.data.data.reverse()); // Reverse the logs array to display the most recent logs first
+      setLogs(response.data.data.reverse());
     } catch (error) {
       console.error('Error fetching logs', error);
     }
@@ -21,7 +21,7 @@ const Logs = () => {
   return (
     <Container>
       <Typography variant="h5" gutterBottom>Log Information</Typography>
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} style={{ backgroundColor: '#F8EDED' }}>
         <Table>
           <TableHead>
             <TableRow>

@@ -1,7 +1,7 @@
 /* App.css */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
+  background-color: #F8EDED;
   margin: 0;
   padding: 0;
 }
@@ -22,13 +22,13 @@ body {
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #173B45;
   padding: 20px;
   color: white;
 }
 
 .App-link {
-  color: #61dafb;
+  color: #FF8225;
 }
 
 main {
@@ -36,7 +36,7 @@ main {
 }
 
 h2 {
-  color: #333;
+  color: #B43F3F;
   padding-bottom: 30px;
   padding-top: 20px;
   font-size: 40px !important;

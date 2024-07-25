@@ -7,7 +7,7 @@ const Settings = () => {
     dns_server_ip: '',
     port_number: '',
     enable_logging: true,
-    log_retention: 30
+    log_retention: 30,
   });
 
   useEffect(() => {
@@ -51,7 +51,7 @@ const Settings = () => {
   return (
     <Container>
       <Typography variant="h5" gutterBottom>Network Settings</Typography>
-      <Paper elevation={3} style={{ padding: '16px', marginBottom: '16px' }}>
+      <Paper elevation={3} style={{ padding: '16px', marginBottom: '16px', backgroundColor: '#F8EDED' }}>
         <TextField
           label="DNS Server IP"
           name="dns_server_ip"

@@ -1,10 +1,9 @@
 // App.js
-
 import React, { useState } from 'react';
 import { CssBaseline, Box, Toolbar, Typography, Container } from '@mui/material';
 import NavPanel from './components/NavPanel';
 import Blocklist from './components/Blocklist';
-import Analytics from './components/Analytics'; // Renamed from Dashboard to Analytics
+import Analytics from './components/Analytics';
 import Settings from './components/Settings';
 import Logs from './components/Logs';
 import Help from './components/Help';
@@ -43,18 +42,23 @@ function App() {
           marginRight: '100px',
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'center'
+          alignItems: 'center',
         }}
       >
         <Toolbar />
         <Container maxWidth="lg">
-          <Typography variant="h2" gutterBottom>
-            {activePage === 'Blocklist' ? 'Manage Blocklist' : 
-             activePage === 'Analytics' ? 'Analytics Panel' : 
-             activePage === 'Settings' ? 'Settings' :
-             activePage === 'Logs' ? 'Logs' :
-             activePage === 'Help' ? 'Help & FAQ' :
-             'Manage Blocklist'}
+          <Typography variant="h2" gutterBottom sx={{ color: '#B43F3F' }}>
+            {activePage === 'Blocklist'
+              ? 'Manage Blocklist'
+              : activePage === 'Analytics'
+              ? 'Analytics Panel'
+              : activePage === 'Settings'
+              ? 'Settings'
+              : activePage === 'Logs'
+              ? 'Logs'
+              : activePage === 'Help'
+              ? 'Help & FAQ'
+              : 'Manage Blocklist'}
           </Typography>
           {renderContent()}
         </Container>

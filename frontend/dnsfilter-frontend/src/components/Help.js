@@ -6,7 +6,7 @@ const Help = () => {
   return (
     <Container>
       <Typography variant="h4" gutterBottom>
-        Help information is found here.
+        Help & FAQ
       </Typography>
 
       <Accordion>

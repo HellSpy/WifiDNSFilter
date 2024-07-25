@@ -36,18 +36,17 @@ const Analytics = () => {
         <Grid item xs={12}>
           <Card>
             <CardContent>
-              <Typography variant="h5">Total Requests</Typography>
+              <Typography variant="h5" sx={{ color: '#B43F3F' }}>Total Requests</Typography>
               <Typography variant="h6">{stats.total_requests}</Typography>
             </CardContent>
           </Card>
         </Grid>
 
-        {/* Linechart */}
         <Grid item xs={12}>
           <Card>
             <CardContent>
-              <Typography variant="h5">Requests Over Time</Typography>
-                <ResponsiveContainer width="100%" height={300}>
+              <Typography variant="h5" sx={{ color: '#B43F3F' }}>Requests Over Time</Typography>
+              <ResponsiveContainer width="100%" height={300}>
                 <LineChart data={stats.timeline_data}>
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="date" />
@@ -64,7 +63,7 @@ const Analytics = () => {
         <Grid item xs={12} md={6}>
           <Card>
             <CardContent>
-              <Typography variant="h5">Most Frequent Domains</Typography>
+              <Typography variant="h5" sx={{ color: '#B43F3F' }}>Most Frequent Domains</Typography>
               {stats.most_frequent_domains.length ? (
                 <>
                   <BarChart width={500} height={300} data={stats.most_frequent_domains.map(([name, value]) => ({ name, value }))}>
@@ -75,7 +74,7 @@ const Analytics = () => {
                     <Legend />
                     <Bar dataKey="value" fill="#8884d8" />
                   </BarChart>
-                  <TableContainer component={Paper}>
+                  <TableContainer component={Paper} style={{ backgroundColor: '#F8EDED' }}>
                     <Table>
                       <TableHead>
                         <TableRow>
@@ -104,7 +103,7 @@ const Analytics = () => {
         <Grid item xs={12} md={6}>
           <Card>
             <CardContent>
-              <Typography variant="h5">Most Blocked Domains</Typography>
+              <Typography variant="h5" sx={{ color: '#B43F3F' }}>Most Blocked Domains</Typography>
               {stats.most_blocked_domains.length ? (
                 <>
                   <PieChart width={400} height={400}>
@@ -124,7 +123,7 @@ const Analytics = () => {
                     <Tooltip />
                     <Legend />
                   </PieChart>
-                  <TableContainer component={Paper}>
+                  <TableContainer component={Paper} style={{ backgroundColor: '#F8EDED' }}>
                     <Table>
                       <TableHead>
                         <TableRow>

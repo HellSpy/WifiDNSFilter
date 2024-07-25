@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Button, TextField, List, ListItem, ListItemText, IconButton, Container, Typography, Paper, Grid } from '@mui/material';
+import { Button, TextField, List, ListItem, ListItemText, IconButton, Container, Typography, Paper } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import UploadIcon from '@mui/icons-material/Upload';
 import DownloadIcon from '@mui/icons-material/Download';
@@ -45,11 +45,11 @@ const Blocklist = () => {
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
     setFile(selectedFile);
-    console.log('File selected:', selectedFile); // Debug log for file selection
+    console.log('File selected:', selectedFile);
     if (selectedFile) {
-      console.log('File name:', selectedFile.name); // Additional debug log for file name
+      console.log('File name:', selectedFile.name);
     } else {
-      console.log('No file selected'); // Log if no file is selected
+      console.log('No file selected');
     }
   };
 
@@ -58,13 +58,13 @@ const Blocklist = () => {
     const formData = new FormData();
     formData.append('file', file);
     try {
-      console.log('Sending file to backend:', file); // Debug log for file sending
+      console.log('Sending file to backend:', file);
       const response = await axios.post('http://localhost:5000/api/import_blocklist', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
-      console.log('Backend response:', response.data); // Debug log for backend response
+      console.log('Backend response:', response.data);
       fetchBlocklist();
       setFile(null);
     } catch (error) {
@@ -78,7 +78,7 @@ const Blocklist = () => {
 
   return (
     <Container>
-      <Paper elevation={3} style={{ padding: '16px', marginBottom: '16px' }}>
+      <Paper elevation={3} style={{ padding: '16px', marginBottom: '16px', backgroundColor: '#F8EDED' }}>
         <TextField
           label="Add domain to blocklist"
           value={newDomain}
@@ -88,7 +88,7 @@ const Blocklist = () => {
         />
         <Button variant="contained" color="primary" onClick={addDomain}>Add</Button>
       </Paper>
-      <Paper elevation={3} style={{ padding: '16px', marginBottom: '16px', maxHeight: '300px', overflowY: 'auto' }}>
+      <Paper elevation={3} style={{ padding: '16px', marginBottom: '16px', maxHeight: '300px', overflowY: 'auto', backgroundColor: '#F8EDED' }}>
         <Typography variant="h6">Current Blocklist</Typography>
         <List>
           {blocklist.map((domain) => (
@@ -102,7 +102,7 @@ const Blocklist = () => {
           ))}
         </List>
       </Paper>
-      <Paper elevation={3} style={{ padding: '16px', marginBottom: '16px' }}>
+      <Paper elevation={3} style={{ padding: '16px', marginBottom: '16px', backgroundColor: '#F8EDED' }}>
         <input
           accept="application/json"
           style={{ display: 'none' }}
